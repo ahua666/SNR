@@ -152,6 +152,10 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
             final String allData = NettyByteAndStringUtils.byteToHex(buffer);
             String three = new String(buffer, "GBK");
             log.info(three);
+            /**
+             * TODO 现在这里转发到websocket客户端 用于测试 (后续请做数据下发、数据验证、数据保存等操作。)
+             */
+            BroadCastInfo(three);
             // 数据下发
             recvDataSource.dataEntry(allData);
 
